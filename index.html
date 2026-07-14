@@ -132,7 +132,7 @@
   .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
   .card{
     background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--yellow); border-radius: var(--radius);
-    overflow:hidden; display:flex; flex-direction:column;
+    overflow:hidden; display:flex; flex-direction:column; position:relative;
     transition: transform .2s ease, box-shadow .2s ease;
   }
   .card.c-orange{ border-top-color: var(--orange); }
@@ -142,13 +142,14 @@
   .card .thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .3s ease; }
   .card:hover .thumb img{ transform: scale(1.06); }
   .card .body{ padding: 22px 22px 26px; flex:1; display:flex; flex-direction:column; }
-  .tag{ display:inline-block; font-size:0.72rem; letter-spacing:0.03em; text-transform:uppercase; font-weight:700; padding:5px 12px; border-radius:999px; width:fit-content; }
+  .tag{ display:inline-block; font-size:0.72rem; letter-spacing:0.03em; text-transform:uppercase; font-weight:700; padding:5px 12px; border-radius:999px; width:fit-content; position:relative; z-index:2; }
   .tag-yellow{ background: var(--yellow); color: #4A3800; }
   .tag-orange{ background: var(--orange); color: #fff; }
   .tag-ink{ background: var(--ink); color: #fff; }
   .card h3{ font-size: 1.2rem; margin-top: 10px; font-weight:600; }
   .card p{ color: var(--ink-soft); font-size: 0.93rem; margin: 10px 0 0; flex:1; }
   .card .go{ margin-top: 16px; font-size: 0.86rem; font-weight: 700; color: var(--orange-dark); }
+  .card .go::before{ content:""; position:absolute; inset:0; z-index:1; }
   .card .go::after{ content: " →"; transition: margin .15s ease; }
   .card:hover .go::after{ margin-left:4px; }
 
@@ -236,9 +237,9 @@
   </div>
 </section>
 
-<div class="wrap" style="margin: -20px 0 40px;">
+<div class="wrap" style="margin: -20px auto 40px;">
   <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; background: var(--bg-soft); border:1px solid var(--line); border-radius: var(--radius); padding: 18px 26px;">
-    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/credit-impot.png" alt="50% de crédit d'impôt immédiat, selon loi de finances en vigueur" onerror="this.remove()" style="height:64px; width:auto; flex-shrink:0;" />
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/credit-impot.png" alt="50% de crédit d'impôt immédiat, selon loi de finances en vigueur" onerror="this.remove()" style="height:120px; width:auto; flex-shrink:0;" />
     <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">Nos cours individuels à domicile ainsi que nos services à domicile sont éligibles à <strong style="color:var(--ink);">50% de crédit d'impôt immédiat</strong>, selon la loi de finances en vigueur.</p>
   </div>
 </div>
