@@ -1,258 +1,415 @@
-<!DOCTYPE HTML>
-  
-<html>
-
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-
-<title> accueil site anatis formations </title>
-
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<title>Anatis Formations — Cours particuliers, formations et services à Templeuve-en-Pévèle</title>
+<meta name="description" content="Anatis Formations : soutien scolaire, préparation aux concours, informatique, guitare et services à domicile. Un couple d'enseignants certifiés et diplômés, chacun plus de 20 ans d'expérience." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --bg-soft: #FFF6DC;
+    --ink: #17181F;
+    --ink-soft: #5B5F6B;
+    --orange: #FF7A1A;
+    --orange-dark: #E85E00;
+    --yellow: #FFCC00;
+    --yellow-dark: #D9A400;
+    --line: #ECEAE4;
+    --card: #FFFFFF;
+    --radius: 16px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--ink);
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .eyebrow{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .wrap{ max-width: 1140px; margin: 0 auto; padding: 0 28px; }
 
+  /* Header */
+  header.site{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px; max-width: 1140px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; }
+  .brand img{ height: 46px; width:auto; }
+  nav.links{ display:flex; gap: 30px; align-items:center; }
+  nav.links a{
+    font-size: 0.96rem; font-weight: 600; color: var(--ink-soft);
+    padding: 4px 0;
+  }
+  nav.links a:hover{ color: var(--ink); }
+  .btn{
+    display:inline-block; font-weight:700; font-size:0.95rem;
+    padding: 13px 26px; border-radius: 999px;
+    border: 2px solid transparent; transition: all .18s ease;
+  }
+  .btn-primary{ background: var(--orange); color: #fff; box-shadow: 0 8px 20px -8px rgba(242,134,29,0.55); }
+  .btn-primary:hover{ background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(214,107,12,0.55); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: #fff; }
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .menu-toggle span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* Hero */
+  .hero{ position:relative; padding: 92px 0 84px; overflow:hidden; }
+  .hero::before{
+    content:""; position:absolute; top:-150px; right:-170px; width:560px; height:560px;
+    background: radial-gradient(circle at 30% 30%, var(--yellow) 0%, rgba(255,204,0,0) 70%);
+    opacity:0.75; border-radius:50%; filter: blur(4px); pointer-events:none;
+  }
+  .hero::after{
+    content:""; position:absolute; bottom:-190px; left:-150px; width:480px; height:480px;
+    background: radial-gradient(circle at 60% 40%, var(--orange) 0%, rgba(255,122,26,0) 70%);
+    opacity:0.45; border-radius:50%; filter: blur(4px); pointer-events:none;
+  }
+  .hero-inner{ position:relative; max-width: 740px; }
+  .hero h1{ font-size: clamp(2.5rem, 5vw, 3.7rem); }
+  .hero h1 em{ font-style:normal; color: var(--orange); }
+  .hero p.lead{
+    margin-top: 22px; font-size: 1.18rem; color: var(--ink-soft); max-width: 580px;
+  }
+  .hero-actions{ margin-top: 34px; display:flex; gap: 16px; flex-wrap:wrap; }
+  .hero-meta{ margin-top: 54px; display:flex; gap: 20px; flex-wrap:wrap; }
+  .hero-meta div{
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px 22px; min-width:150px;
+  }
+  .hero-meta div strong{ font-family:'Baloo 2',sans-serif; font-size:1.7rem; display:block; color: var(--ink); }
+  .hero-meta div span{ font-size: 0.85rem; color: var(--ink-soft); }
+
+  /* Section headers */
+  .section{ padding: 90px 0; }
+  .section-soft{ background: var(--bg-soft); }
+  .section-head{ max-width: 640px; margin-bottom: 50px; }
+  .section-head h2{ font-size: clamp(1.9rem, 3vw, 2.5rem); margin-top: 8px; }
+  .section-head p{ color: var(--ink-soft); margin-top: 14px; font-size: 1.04rem; }
+
+  /* Category groups */
+  .group{ margin-bottom: 66px; }
+  .group:last-child{ margin-bottom: 0; }
+  .group-label{ display:flex; align-items:center; gap: 12px; margin-bottom: 26px; }
+  .group-label .pill{
+    font-family:'Baloo 2', sans-serif; font-size:0.85rem;
+    font-weight:700; padding: 8px 18px; border-radius:999px; color:#fff;
+  }
+  .pill-yellow{ background: var(--yellow-dark); }
+  .pill-orange{ background: var(--orange); }
+  .pill-ink{ background: var(--ink); }
+  .group-label .rule{ height:1px; background: var(--line); flex:1; }
+
+  .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card{
+    background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--yellow); border-radius: var(--radius);
+    overflow:hidden; display:flex; flex-direction:column;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card.c-orange{ border-top-color: var(--orange); }
+  .card.c-ink{ border-top-color: var(--ink); }
+  .card:hover{ transform: translateY(-5px); box-shadow: 0 20px 34px -18px rgba(23,24,31,0.28); }
+  .card .thumb{ height: 168px; overflow:hidden; position:relative; background: var(--bg-soft); }
+  .card .thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .3s ease; }
+  .card:hover .thumb img{ transform: scale(1.06); }
+  .card .body{ padding: 22px 22px 26px; flex:1; display:flex; flex-direction:column; }
+  .tag{ display:inline-block; font-size:0.72rem; letter-spacing:0.03em; text-transform:uppercase; font-weight:700; padding:5px 12px; border-radius:999px; width:fit-content; }
+  .tag-yellow{ background: var(--yellow); color: #4A3800; }
+  .tag-orange{ background: var(--orange); color: #fff; }
+  .tag-ink{ background: var(--ink); color: #fff; }
+  .card h3{ font-size: 1.2rem; margin-top: 10px; font-weight:600; }
+  .card p{ color: var(--ink-soft); font-size: 0.93rem; margin: 10px 0 0; flex:1; }
+  .card .go{ margin-top: 16px; font-size: 0.86rem; font-weight: 700; color: var(--orange-dark); }
+  .card .go::after{ content: " →"; transition: margin .15s ease; }
+  .card:hover .go::after{ margin-left:4px; }
+
+  /* About */
+  .about-grid{ display:grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items:center; }
+  .about-grid .photo img{ border-radius: 18px; box-shadow: 0 24px 50px -24px rgba(23,24,31,0.35); }
+  .about-grid .stats{ display:flex; gap:16px; margin-top: 30px; flex-wrap:wrap; }
+  .about-grid .stats div{ background: #fff; border:1px solid var(--line); border-radius: var(--radius); padding:16px 20px; }
+  .about-grid .stats strong{ font-family:'Baloo 2',sans-serif; font-size:2.1rem; display:block; color: var(--orange-dark); }
+  .about-grid .stats span{ font-size:0.85rem; color:var(--ink-soft); }
+
+  /* Location + contact */
+  .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .panel{
+    background: var(--card); border:1px solid var(--line); border-radius: 18px;
+    padding: 34px; display:flex; flex-direction:column; gap: 12px;
+  }
+  .panel img{ border-radius: 12px; height:180px; object-fit:cover; margin-bottom: 8px; }
+  .panel h3{ font-size:1.4rem; }
+  .panel p{ color: var(--ink-soft); }
+  .panel .btn{ align-self:flex-start; margin-top:10px; }
+
+  footer{ border-top: 1px solid var(--line); padding: 40px 0; background: var(--bg-soft); }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-inner img{ height: 34px; width:auto; }
+  footer p{ color: var(--ink-soft); font-size: 0.85rem; margin:0; }
+
+  @media (max-width: 860px){
+    nav.links{ position:fixed; top:72px; left:0; right:0; background:var(--bg);
+      flex-direction:column; align-items:flex-start; padding:22px 28px; gap:18px;
+      border-bottom:1px solid var(--line); display:none; }
+    nav.links.open{ display:flex; }
+    .menu-toggle{ display:block; }
+    .cards{ grid-template-columns: 1fr 1fr; }
+    .about-grid, .split{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px){
+    .cards{ grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .card, .btn, .card .thumb img{ transition:none; }
+  }
+</style>
 </head>
+<body>
 
-<body class="is-preload">
-
-<!-- Wrapper -->
-<div id="wrapper">
-
-<!-- Header -->
-
-<header id="header">
-<div class="inner">
-
-	<p> Bienvenue sur notre nouveau site internet ! </p>							
-	<!-- Logo -->
-	<a href="index.html" class="logo">
-	<span class="image main"><img src="images/logo.png" alt="" /></span>
-    	</span>
-	</a>
-</div>
-
-	<!-- Navigation -->
-	<nav><ul><li><a href="#menu">Menu</a></li></ul></nav>
-
+<header class="site">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/logo.png" alt="Anatis Formations" />
+    </a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="document.querySelector('nav.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links">
+      <a href="#formations">Formations</a>
+      <a href="#services">Services</a>
+      <a href="#apropos">Qui sommes-nous</a>
+      <a href="#localisation">Nous localiser</a>
+      <a href="#contact" class="btn btn-primary">Nous contacter</a>
+    </nav>
+  </div>
 </header>
 
-<!-- Menu -->
-<nav id="menu">
-<h2> Menu </h2>
-<ul>
-<li><a href="index.html">Accueil</a></li>
-<li><a href="page 10.html">Qui sommes-nous ?</a></li>
-<li><a href="page 11.html">Nous localiser</a></li>
-<li><a href="page 12.html">Nous contacter</a></li>
-
-
-
-</ul>
-</nav>
-
-<!-- Main -->
-<div id="main">
-<div class="inner">
-
-
-<header>
-<FONT SIZE=14>Services et formations.</FONT>
-</header>
-
-<section class="tiles">
-
-	<!-- 01 Lecture et �criture CPCE1 -->
-<article class="style1">
-<span class="image">
-<img src="images/pic14.jpg" alt="" />
-</span>
-<a href="page 1.html">
-<h2>Lecture et &eacute;criture CP - CE1</h2>
-<div class="content">
-<p>&Eacute;cole primaire</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-
-	<!-- 02 math�matiques -->
-<article class="style2">
-<span class="image">
-<img src="images/pic02.jpg" alt="" />
-</span>
-<a href="page 2.html">
-<h2>Math&Eacute;matiques</h2>
-<div class="content">
-<p>Soutien scolaire<br>Renforcement de 7 &agrave; 77 ans<br>Formation professionnelle</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-
-		
-	<!-- 03 Pr�paration Concours CRPE -->
-<article class="style5">
-<span class="image">
-<img src="images/pic05.jpg" alt="" />
-</span>
-<a href="page 5.html">
-<h2>Pr&eacute;paration CRPE</h2>
-<div class="content">
-<p>Pr&eacute;paration au concours <br>des professeurs des &eacute;coles</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>								
-	<!-- 04 pr�paration concours -->
-<article class="style3">
-<span class="image">
-<img src="images/pic03.jpg" alt="" />
-</span>
-<a href="page 3.html">
-<h2>Pr&Eacute;paration concours</h2>
-<div class="content">
-<p>CRPE<br>CPE<br>Culture g&eacute;n&eacute;rale administrative<br>&Eacute;preuves de math&eacute;matiques<br>&Eacute;preuves p&eacute;dagogiques</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-								
-	<!-- 05 Entretien de la maison et travaux m�nagers-->
-<article class="style4">
-<span class="image">
-<img src="images/pic04.jpg" alt="" />
-</span>
-<a href="page 4.html">
-<h2>Entretien de la maison et travaux m&eacute;nagers</h2>
-<div class="content">
-<p></p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-						
-								
-	<!-- 06 Informatique -->
-<article class="style6">
-<span class="image">
-<img src="images/pic06.jpg" alt="" />
-</span>
-<a href="page 6.html">
-<h2>Informatique</h2>
-<div class="content">
-<p>pour les particuliers<br>et les petites entreprises TPE</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-								
-	<!-- 07 Cours de guitare-->
-<article class="style2">
-<span class="image">
-<img src="images/pic07.jpg" alt="" />
-</span>
-<a href="page 7.html">
-<h2>Cours de Guitare</h2>
-<div class="content">
-<p>Apprendre la guitare<br>en cours particulier</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-
-	<!-- 08 Petits travaux de jardinage -->							
-<article class="style3">
-<span class="image">
-<img src="images/pic08.jpg" alt="" />
-</span>
-<a href="page 8.html">
-<h2>Petits travaux de jardinage</h2>
-</a>
-</article>
-								
-	<!-- 09 Cours en ligne -->
-<article class="style1">
-<span class="image">
-<img src="images/pic09.jpg" alt="" />
-</span>
-<a href="page 9.html">
-<div class="content">
-<p>Formations</p>
-</div>
-<h2>En ligne</h2><br>
-<div class="content">
-<p>individuel ou en petit groupe</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-
-	<!-- 10 Qui sommes-nous ? -->
-<article class="style5">
-<span class="image">
-<img src="images/pic10.jpg" alt="" />
-</span>
-<a href="page 10.html">
-<h2>Qui sommes-nous ?</h2>
-<div class="content">
-<p>Nous sommes des enseignants<br>et des formateurs professionnels qualifi&eacute;s<br>avec plus de 30 ans d'exp&eacute;rience</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-
-	<!-- 11 Nous localiser -->
-<article class="style6">
-<span class="image">
-<img src="images/pic11.jpg" alt="" />
-</span>
-<a href="page 11.html">
-<h2>Nous localiser</h2>
-<div class="content">
-<p>Templeuve-en-P&eacute;v&egrave;le Hauts-de-France</p>
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-
-	<!-- 12 Nous contacter -->
-<article class="style4">
-<span class="image">
-<img src="images/pic12.jpg" alt="" />
-</span>
-<a href="page 12.html">
-<h2>Nous contacter</h2>
-<div class="content">
-<h4>[...]</h4>
-</div>
-</a>
-</article>
-							
-</section>
-</div>
-</div>
-
-<!-- Footer -->
-<footer id="footer"><! -- fond gris -->
-<div class="inner">
-
-<h2>Contactez-nous</h2>
-
-<section>
-<ul class="icons">
-<li><a href="mailto:anatisformations@gmail.com?subject=Contact anatis formations" " class="icon solid style2 fa-envelope"><p>Mail</p><span class="label">Email</span></a></li>
-</ul>
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div style="display:flex; gap:8px; margin-bottom:18px;" aria-hidden="true">
+      <span style="width:14px; height:14px; border-radius:50%; background:var(--yellow); display:inline-block;"></span>
+      <span style="width:14px; height:14px; border-radius:50%; background:var(--orange); display:inline-block;"></span>
+      <span style="width:14px; height:14px; border-radius:50%; background:var(--ink); display:inline-block;"></span>
+    </div>
+    <span class="eyebrow" style="color:var(--orange-dark);">Enseignants certifiés et diplômés · Templeuve-en-Pévèle</span>
+    <h1>Apprendre et progresser, <em>en toute confiance</em>.</h1>
+    <p class="lead">Anatis Formations, c'est un couple de formateurs : des enseignants certifiés, diplômés et expérimentés, ayant exercé du primaire à l'université. Cette expertise fait toute la différence en soutien scolaire, préparation aux concours et informatique. En complément, nous proposons aussi des cours de guitare et des services à domicile.</p>
+    <div class="hero-actions">
+      <a href="#formations" class="btn btn-primary">Découvrir nos formations</a>
+      <a href="#contact" class="btn btn-ghost">Nous contacter</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>2</strong><span>enseignants certifiés</span></div>
+      <div><strong>20+ ans</strong><span>d'expérience chacun</span></div>
+      <div><strong>7–77 ans</strong><span>tous âges, tous niveaux</span></div>
+    </div>
+  </div>
 </section>
 
-	</footer>
-	</div>
+<div class="wrap" style="margin: -20px 0 40px;">
+  <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; background: var(--bg-soft); border:1px solid var(--line); border-radius: var(--radius); padding: 18px 26px;">
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/credit-impot.png" alt="50% de crédit d'impôt immédiat, selon loi de finances en vigueur" onerror="this.remove()" style="height:64px; width:auto; flex-shrink:0;" />
+    <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">Nos cours individuels à domicile ainsi que nos services à domicile sont éligibles à <strong style="color:var(--ink);">50% de crédit d'impôt immédiat</strong>, selon la loi de finances en vigueur.</p>
+  </div>
+</div>
 
-<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+<section class="section" id="formations">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--yellow-dark);">Nos domaines</span>
+      <h2>Formations, soutien scolaire et loisirs</h2>
+      <p>Des cours particuliers et des formations adaptés à chaque objectif, en individuel ou en mini groupe.</p>
+    </div>
+
+    <div class="group">
+      <div class="group-label">
+        <span class="pill pill-yellow">Scolaire &amp; concours</span>
+        <div class="rule"></div>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic14.jpg" alt="Lecture et écriture CP-CE1" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-yellow">École primaire</span>
+            <h3>Lecture et écriture CP–CE1</h3>
+            <p>Un accompagnement individualisé pour construire des bases solides en lecture et en écriture.</p>
+            <a class="go" href="page%201.html">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic02.jpg" alt="Mathématiques" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-yellow">7 à 77 ans</span>
+            <h3>Mathématiques</h3>
+            <p>Soutien scolaire et renforcement, du collège à la formation professionnelle.</p>
+            <a class="go" href="page%202.html">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic05.jpg" alt="Préparation CRPE" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-yellow">Concours</span>
+            <h3>Préparation CRPE</h3>
+            <p>Préparation ciblée au concours de professeur des écoles.</p>
+            <a class="go" href="page%205.html">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic03.jpg" alt="Préparation concours" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-yellow">CRPE · CPE</span>
+            <h3>Préparation concours</h3>
+            <p>Culture générale administrative, épreuves de mathématiques et épreuves pédagogiques.</p>
+            <a class="go" href="page%203.html">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic09.jpg" alt="Cours en présentiel" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-yellow">À domicile ou en salle</span>
+            <h3>Cours en présentiel</h3>
+            <p>Des cours en présentiel, à domicile ou en salle, en individuel ou en mini groupe.</p>
+            <a class="go" href="page%209.html">En savoir plus</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">
+        <span class="pill pill-orange">Loisirs &amp; numérique</span>
+        <div class="rule"></div>
+      </div>
+      <div class="cards">
+        <article class="card c-orange">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic06.jpg" alt="Informatique" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-orange">Particuliers &amp; TPE</span>
+            <h3>Informatique</h3>
+            <p>Formation et accompagnement informatique pour particuliers et petites entreprises.</p>
+            <a class="go" href="page%206.html">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card c-orange">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic07.jpg" alt="Cours de guitare" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-orange">Cours particulier</span>
+            <h3>Cours de guitare</h3>
+            <p>Apprendre la guitare à son rythme, avec un enseignement personnalisé.</p>
+            <a class="go" href="page%207.html">En savoir plus</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group" id="services">
+      <div class="group-label">
+        <span class="pill pill-ink">Services à domicile</span>
+        <div class="rule"></div>
+      </div>
+      <div class="cards">
+        <article class="card c-ink">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic04.jpg" alt="Entretien de la maison" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-ink">À domicile</span>
+            <h3>Entretien de la maison</h3>
+            <p>Travaux ménagers réalisés avec soin et discrétion.</p>
+            <a class="go" href="page%204.html">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card c-ink">
+          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic08.jpg" alt="Jardinage" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
+          <div class="body">
+            <span class="tag tag-ink">Extérieur</span>
+            <h3>Petits travaux de jardinage</h3>
+            <p>Entretien courant de votre jardin, sur demande ponctuelle ou régulière.</p>
+            <a class="go" href="page%208.html">En savoir plus</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft" id="apropos">
+  <div class="wrap about-grid">
+    <div class="photo">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic10.jpg" alt="Qui sommes-nous" onerror="this.parentElement.style.background='var(--bg)';this.remove()" />
+    </div>
+    <div>
+      <span class="eyebrow" style="color:var(--orange-dark);">Qui sommes-nous</span>
+      <h2 style="margin-top:8px; font-size:clamp(1.8rem,3vw,2.3rem);">Des enseignants certifiés, diplômés et expérimentés</h2>
+      <p style="color:var(--ink-soft); margin-top:16px; font-size:1.02rem;">Anatis Formations, c'est nous deux : un couple d'enseignants certifiés et diplômés, ayant exercé en primaire, au collège, au lycée et à l'université. Cette expérience à tous les niveaux, chacun avec plus de 20 ans de pratique, fait toute la différence par rapport à d'autres organismes : nous connaissons les programmes, les méthodes et les exigences de chaque étape du parcours scolaire et professionnel.</p>
+      <div class="stats">
+        <div><strong>2</strong><span>enseignants certifiés</span></div>
+        <div><strong>20+</strong><span>ans d'expérience chacun</span></div>
+        <div><strong>4</strong><span>niveaux enseignés : primaire à l'université</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="localisation">
+  <div class="wrap split">
+    <div class="panel">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic11.jpg" alt="Nous localiser" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" />
+      <span class="tag tag-yellow">Nous localiser</span>
+      <h3>Templeuve-en-Pévèle</h3>
+      <p>Hauts-de-France — cours à domicile ou en salle, selon la formation choisie.</p>
+    </div>
+    <div class="panel" id="contact">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic12.jpg" alt="Nous contacter" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" />
+      <span class="tag tag-orange">Nous contacter</span>
+      <h3>Une question, un projet ?</h3>
+      <p>Appelez-nous ou écrivez-nous, nous revenons vers vous rapidement pour construire votre accompagnement.</p>
+      <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:2rem; color:var(--ink); margin:6px 0;">
+        <a href="tel:+33688998856" style="color:var(--orange-dark);">06 88 99 88 56</a>
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="tel:+33688998856">Nous appeler</a>
+        <a class="btn btn-ghost" href="mailto:anatisformations@gmail.com?subject=Contact%20Anatis%20Formations">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/logo.png" alt="Anatis Formations" />
+    <p>Templeuve-en-Pévèle, Hauts-de-France · anatisformations@gmail.com</p>
+    <p>© 2026 Anatis Formations</p>
+  </div>
+</footer>
 
 </body>
 </html>
