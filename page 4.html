@@ -1,79 +1,292 @@
-	<!DOCTYPE HTML>
-	<!-- Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 	license (html5up.net/license)-->
-
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<title>Generic - Phantom by HTML5 UP</title>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<title>Entretien de la maison et travaux ménagers — Anatis Formations</title>
+<meta name="description" content="Ménage et repassage à domicile, réalisés avec soin et professionnalisme." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --bg-soft: #FFF6DC;
+    --ink: #17181F;
+    --ink-soft: #5B5F6B;
+    --orange: #FF7A1A;
+    --orange-dark: #E85E00;
+    --yellow: #FFCC00;
+    --yellow-dark: #D9A400;
+    --line: #ECEAE4;
+    --card: #FFFFFF;
+    --radius: 16px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--ink);
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .eyebrow{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .wrap{ max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+  /* Header */
+  header.site{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px; max-width: 1140px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; }
+  .brand img{ height: 46px; width:auto; }
+  nav.links{ display:flex; gap: 30px; align-items:center; }
+  nav.links a{
+    font-size: 0.96rem; font-weight: 600; color: var(--ink-soft);
+    padding: 4px 0;
+  }
+  nav.links a:hover{ color: var(--ink); }
+  .btn{
+    display:inline-block; font-weight:700; font-size:0.95rem;
+    padding: 13px 26px; border-radius: 999px;
+    border: 2px solid transparent; transition: all .18s ease;
+  }
+  .btn-primary{ background: var(--orange); color: #fff; box-shadow: 0 8px 20px -8px rgba(242,134,29,0.55); }
+  .btn-primary:hover{ background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(214,107,12,0.55); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: #fff; }
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .menu-toggle span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* Hero */
+  .hero{ position:relative; padding: 92px 0 84px; overflow:hidden; }
+  .hero::before{
+    content:""; position:absolute; top:-60px; right:-60px; width:480px; height:480px;
+    background: radial-gradient(circle at 30% 30%, var(--yellow) 0%, rgba(255,204,0,0) 70%);
+    opacity:0.75; border-radius:50%; filter: blur(4px); pointer-events:none;
+  }
+  .hero::after{
+    content:""; position:absolute; bottom:-80px; left:-80px; width:420px; height:420px;
+    background: radial-gradient(circle at 60% 40%, var(--orange) 0%, rgba(255,122,26,0) 70%);
+    opacity:0.45; border-radius:50%; filter: blur(4px); pointer-events:none;
+  }
+  .hero-inner{ position:relative; max-width: 740px; }
+  .hero h1{ font-size: clamp(2.5rem, 5vw, 3.7rem); }
+  .hero h1 em{ font-style:normal; color: var(--orange); }
+  .hero p.lead{
+    margin-top: 22px; font-size: 1.18rem; color: var(--ink-soft); max-width: 580px;
+  }
+  .hero-actions{ margin-top: 34px; display:flex; gap: 16px; flex-wrap:wrap; }
+  .hero-meta{ margin-top: 54px; display:flex; gap: 20px; flex-wrap:wrap; }
+  .hero-meta div{
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px 22px; min-width:150px;
+  }
+  .hero-meta div strong{ font-family:'Baloo 2',sans-serif; font-size:1.7rem; display:block; color: var(--ink); }
+  .hero-meta div span{ font-size: 0.85rem; color: var(--ink-soft); }
+
+  /* Section headers */
+  .section{ padding: 90px 0; }
+  .section-soft{ background: var(--bg-soft); }
+  .section-head{ max-width: 640px; margin-bottom: 50px; }
+  .section-head h2{ font-size: clamp(1.9rem, 3vw, 2.5rem); margin-top: 8px; }
+  .section-head p{ color: var(--ink-soft); margin-top: 14px; font-size: 1.04rem; }
+
+  /* Category groups */
+  .group{ margin-bottom: 66px; }
+  .group:last-child{ margin-bottom: 0; }
+  .group-label{ display:flex; align-items:center; gap: 12px; margin-bottom: 26px; }
+  .group-label .pill{
+    font-family:'Baloo 2', sans-serif; font-size:0.85rem;
+    font-weight:700; padding: 8px 18px; border-radius:999px; color:#fff;
+  }
+  .pill-yellow{ background: var(--yellow-dark); }
+  .pill-orange{ background: var(--orange); }
+  .pill-ink{ background: var(--ink); }
+  .group-label .rule{ height:1px; background: var(--line); flex:1; }
+
+  .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card{
+    background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--yellow); border-radius: var(--radius);
+    overflow:hidden; display:flex; flex-direction:column; position:relative;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card.c-orange{ border-top-color: var(--orange); }
+  .card.c-ink{ border-top-color: var(--ink); }
+  .card:hover{ transform: translateY(-5px); box-shadow: 0 20px 34px -18px rgba(23,24,31,0.28); }
+  .card .thumb{ height: 168px; overflow:hidden; position:relative; background: var(--bg-soft); }
+  .card .thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .3s ease; }
+  .card:hover .thumb img{ transform: scale(1.06); }
+  .card .body{ padding: 22px 22px 26px; flex:1; display:flex; flex-direction:column; }
+  .tag{ display:inline-block; font-size:0.72rem; letter-spacing:0.03em; text-transform:uppercase; font-weight:700; padding:5px 12px; border-radius:999px; width:fit-content; position:relative; z-index:2; }
+  .tag-yellow{ background: var(--yellow); color: #4A3800; }
+  .tag-orange{ background: var(--orange); color: #fff; }
+  .tag-ink{ background: var(--ink); color: #fff; }
+  .card h3{ font-size: 1.2rem; margin-top: 10px; font-weight:600; }
+  .card p{ color: var(--ink-soft); font-size: 0.93rem; margin: 10px 0 0; flex:1; }
+  .card .go{ margin-top: 16px; font-size: 0.86rem; font-weight: 700; color: var(--orange-dark); }
+  .card .go::before{ content:""; position:absolute; inset:0; z-index:1; }
+  .card .go::after{ content: " →"; transition: margin .15s ease; }
+  .card:hover .go::after{ margin-left:4px; }
+
+  /* About */
+  .about-grid{ display:grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items:center; }
+  .about-grid .photo img{ border-radius: 18px; box-shadow: 0 24px 50px -24px rgba(23,24,31,0.35); }
+  .about-grid .stats{ display:flex; gap:16px; margin-top: 30px; flex-wrap:wrap; }
+  .about-grid .stats div{ background: #fff; border:1px solid var(--line); border-radius: var(--radius); padding:16px 20px; }
+  .about-grid .stats strong{ font-family:'Baloo 2',sans-serif; font-size:2.1rem; display:block; color: var(--orange-dark); }
+  .about-grid .stats span{ font-size:0.85rem; color:var(--ink-soft); }
+
+  /* Location + contact */
+  .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .panel{
+    background: var(--card); border:1px solid var(--line); border-radius: 18px;
+    padding: 34px; display:flex; flex-direction:column; gap: 12px;
+  }
+  .panel img{ border-radius: 12px; height:180px; object-fit:cover; margin-bottom: 8px; }
+  .panel h3{ font-size:1.4rem; }
+  .panel p{ color: var(--ink-soft); }
+  .panel .btn{ align-self:flex-start; margin-top:10px; }
+
+  footer{ border-top: 1px solid var(--line); padding: 40px 0; background: var(--bg-soft); }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-inner img{ height: 34px; width:auto; }
+  footer p{ color: var(--ink-soft); font-size: 0.85rem; margin:0; }
+
+  @media (max-width: 860px){
+    nav.links{ position:fixed; top:72px; left:0; right:0; background:var(--bg);
+      flex-direction:column; align-items:flex-start; padding:22px 28px; gap:18px;
+      border-bottom:1px solid var(--line); display:none; }
+    nav.links.open{ display:flex; }
+    .menu-toggle{ display:block; }
+    .cards{ grid-template-columns: 1fr 1fr; }
+    .about-grid, .split{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px){
+    .cards{ grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .card, .btn, .card .thumb img{ transition:none; }
+  }
+</style>
 </head>
-<body class="is-preload">
+<body>
 
-	<!-- Wrapper -->
-<div id="wrapper">
-
-	<!-- Header -->
-<header id="header">
-<div class="inner">
-
-	<!-- Logo--> 
-<a href="index.html" class="logo">
-<span class="symbol"><img src="images/coco_droite.png" alt="" /></span><span class="title">anatis services </span>
-</a>
-
-	<!-- Nav -->
-<nav>
-<ul>
-<li><a href="#menu">Menu</a></li>
-</ul>
-</nav>
-</div>
+<header class="site">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/logo.png" alt="Anatis Formations" />
+    </a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="document.querySelector('nav.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links">
+      <a href="index.html#formations">Formations</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#apropos">Qui sommes-nous</a>
+      <a href="index.html#localisation">Nous localiser</a>
+      <a href="index.html#contact" class="btn btn-primary">Nous contacter</a>
+    </nav>
+  </div>
 </header>
 
-	<!-- Menu -->
-<nav id="menu">
-<h2>Menu</h2>
-<ul>
-<li><a href="index.html">Accueil</a></li>
-<li><a href="page 10.html">Qui sommes-nous ?</a></li>
-<li><a href="page 11.html">Nous localiser</a></li>
-<li><a href="page 12.html">Nous contacter</a></li>
+<section class="hero" style="padding-bottom:20px;">
+  <div class="wrap hero-inner">
+    <a href="index.html#formations" style="font-size:0.9rem; font-weight:600; color:var(--ink-soft);">&larr; Retour aux formations</a>
+    <span class="eyebrow" style="color:var(--orange-dark); display:block; margin-top:18px;">À domicile</span>
+    <h1 style="margin-top:8px; display:flex; align-items:center; gap:16px;">
+      Entretien de la maison et travaux ménagers
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="1.5" style="animation:sparkle-icon 2.2s ease-in-out infinite; transform-origin:center; flex-shrink:0;">
+        <path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3z"/>
+      </svg>
+    </h1>
+    <style>@keyframes sparkle-icon{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.35;transform:scale(0.75);}}</style>
+  </div>
+</section>
 
+<section class="section" style="padding-top:20px;">
+  <div class="wrap" style="max-width:760px;">
+    <div style="border-radius:18px; overflow:hidden; margin-bottom:28px; box-shadow:0 24px 50px -24px rgba(23,24,31,0.35);">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic04.jpg" alt="Entretien de la maison et travaux ménagers" onerror="this.parentElement.style.display='none'" style="width:100%; display:block;" />
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:28px;">
+      <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--orange); border-radius:var(--radius); padding:22px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--orange-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <h3 style="font-family:'Baloo 2',sans-serif; font-size:1.1rem; margin:10px 0 4px; color:var(--ink);">Ménage</h3>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin:0;">Une maison propre, agréable à vivre</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--yellow-dark); border-radius:var(--radius); padding:22px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--yellow-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16"/></svg>
+        <h3 style="font-family:'Baloo 2',sans-serif; font-size:1.1rem; margin:10px 0 4px; color:var(--ink);">Repassage</h3>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin:0;">Linge plié, sur cintres ou rangé</p>
+      </div>
+    </div>
 
-</ul>
-</nav>
+    <div style="font-size:1.05rem; line-height:1.75; color:var(--ink-soft);">
+      <p>Vous souhaitez une maison toujours propre et agréable à vivre. Notre professionnalisme et notre savoir-faire feront de votre maison un bijou.</p>
+      <p>Vos vêtements seront repassés dans les règles de l'art et rangés dans vos armoires. Vous retrouverez votre linge plié, sur cintres ou rangé, selon vos consignes et vos exigences.</p>
+    </div>
+  </div>
+</section>
 
-	<!-- Main -->
-<div id="main">
-
-<div class="inner">
-<h1>Entretien de la maison et travaux ménagers</h1>
-<span class="image main"><img src="images/4.jpg" alt="" /></span>
-
-<FONT SIZE=6><B>M&eacute;nage:</B><br><br>
-
-Vous souhaitez une maison toujours propre et agréable à vivre. Notre professionnalisme et notre savoir-faire ferons de votre maison un bijou. <br><br>
-
-<FONT SIZE=6><B>Repassage:</B><br><br>
-
-Vos vétêments seront repassés dans les règles de l'art et rangés dans vos armoires. Vous retrouverez votre linge plié, sur cintres ou rangé, selon vos consignes et vos exigences.<br><br>
-
-Vous pouvez b&eacute;n&eacute;ficiez de 50 % de r&eacute;duction d'imp&ocirc;ts dans le cadre du service &agrave; la personne SAP<br><br>
-
+<div class="wrap" style="margin: 10px auto 10px;">
+  <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/credit-impot.png" alt="50% de crédit d'impôt immédiat" onerror="this.remove()" style="height:110px; width:auto; flex-shrink:0;" />
+    <p style="color:var(--ink-soft); font-size:1.05rem; line-height:1.5; margin:0; max-width:560px;">Vous pouvez bénéficier de <strong style="color:var(--ink);">50% de crédit d'impôt</strong> <strong style="color:var(--orange-dark); background:rgba(255,122,26,0.15); padding:2px 10px; border-radius:6px;">immédiat</strong> dans le cadre du service à la personne (SAP).</p>
+  </div>
 </div>
 
-	
-	<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
 
+<section class="section section-soft" id="contact">
+  <div class="wrap" style="max-width:640px; margin:0 auto;">
+    <div class="panel">
+      <span class="tag tag-orange">Nous contacter</span>
+      <h3>Une question, envie de vous lancer ?</h3>
+      <p>Appelez-nous ou écrivez-nous, nous revenons vers vous rapidement.</p>
+      <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:2rem; color:var(--ink); margin:6px 0;">
+        <a href="tel:+33688998856" style="color:var(--orange-dark);">06 88 99 88 56</a>
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="tel:+33688998856">Nous appeler</a>
+        <a class="btn btn-ghost" href="mailto:anatisformations@gmail.com">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap foot-inner">
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/anatis-only-logo.png" alt="Anatis" />
+    <p>Templeuve-en-Pévèle, Hauts-de-France · anatisformations@gmail.com</p>
+    <p>© 2026 Anatis Formations</p>
+  </div>
+</footer>
 
 </body>
 </html>
