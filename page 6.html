@@ -1,113 +1,382 @@
-	<!DOCTYPE HTML>
-	<!-- Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 	license (html5up.net/license)-->
-
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<title>Generic - Phantom by HTML5 UP</title>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<title>Informatique — Anatis Formations</title>
+<meta name="description" content="Cours d'informatique pour particuliers et prestations pour entreprises (formation du personnel) : bureautique, sites web, création d'applications avec l'IA." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --bg-soft: #FFF6DC;
+    --ink: #17181F;
+    --ink-soft: #5B5F6B;
+    --orange: #FF7A1A;
+    --orange-dark: #E85E00;
+    --yellow: #FFCC00;
+    --yellow-dark: #D9A400;
+    --line: #ECEAE4;
+    --card: #FFFFFF;
+    --radius: 16px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--ink);
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .eyebrow{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .wrap{ max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+  /* Header */
+  header.site{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px; max-width: 1140px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; }
+  .brand img{ height: 46px; width:auto; }
+  nav.links{ display:flex; gap: 30px; align-items:center; }
+  nav.links a{
+    font-size: 0.96rem; font-weight: 600; color: var(--ink-soft);
+    padding: 4px 0;
+  }
+  nav.links a:hover{ color: var(--ink); }
+  .btn{
+    display:inline-block; font-weight:700; font-size:0.95rem;
+    padding: 13px 26px; border-radius: 999px;
+    border: 2px solid transparent; transition: all .18s ease;
+  }
+  .btn-primary{ background: var(--orange); color: #fff; box-shadow: 0 8px 20px -8px rgba(242,134,29,0.55); }
+  .btn-primary:hover{ background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(214,107,12,0.55); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: #fff; }
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .menu-toggle span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* Hero */
+  .hero{ position:relative; padding: 92px 0 84px; overflow:hidden; }
+  .hero::before{
+    content:""; position:absolute; top:-60px; right:-60px; width:480px; height:480px;
+    background: radial-gradient(circle at 30% 30%, var(--yellow) 0%, rgba(255,204,0,0) 70%);
+    opacity:0.75; border-radius:50%; filter: blur(4px); pointer-events:none;
+  }
+  .hero::after{
+    content:""; position:absolute; bottom:-80px; left:-80px; width:420px; height:420px;
+    background: radial-gradient(circle at 60% 40%, var(--orange) 0%, rgba(255,122,26,0) 70%);
+    opacity:0.45; border-radius:50%; filter: blur(4px); pointer-events:none;
+  }
+  .hero-inner{ position:relative; max-width: 740px; }
+  .hero h1{ font-size: clamp(2.5rem, 5vw, 3.7rem); }
+  .hero h1 em{ font-style:normal; color: var(--orange); }
+  .hero p.lead{
+    margin-top: 22px; font-size: 1.18rem; color: var(--ink-soft); max-width: 580px;
+  }
+  .hero-actions{ margin-top: 34px; display:flex; gap: 16px; flex-wrap:wrap; }
+  .hero-meta{ margin-top: 54px; display:flex; gap: 20px; flex-wrap:wrap; }
+  .hero-meta div{
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px 22px; min-width:150px;
+  }
+  .hero-meta div strong{ font-family:'Baloo 2',sans-serif; font-size:1.7rem; display:block; color: var(--ink); }
+  .hero-meta div span{ font-size: 0.85rem; color: var(--ink-soft); }
+
+  /* Section headers */
+  .section{ padding: 90px 0; }
+  .section-soft{ background: var(--bg-soft); }
+  .section-head{ max-width: 640px; margin-bottom: 50px; }
+  .section-head h2{ font-size: clamp(1.9rem, 3vw, 2.5rem); margin-top: 8px; }
+  .section-head p{ color: var(--ink-soft); margin-top: 14px; font-size: 1.04rem; }
+
+  /* Category groups */
+  .group{ margin-bottom: 66px; }
+  .group:last-child{ margin-bottom: 0; }
+  .group-label{ display:flex; align-items:center; gap: 12px; margin-bottom: 26px; }
+  .group-label .pill{
+    font-family:'Baloo 2', sans-serif; font-size:0.85rem;
+    font-weight:700; padding: 8px 18px; border-radius:999px; color:#fff;
+  }
+  .pill-yellow{ background: var(--yellow-dark); }
+  .pill-orange{ background: var(--orange); }
+  .pill-ink{ background: var(--ink); }
+  .group-label .rule{ height:1px; background: var(--line); flex:1; }
+
+  .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card{
+    background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--yellow); border-radius: var(--radius);
+    overflow:hidden; display:flex; flex-direction:column; position:relative;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card.c-orange{ border-top-color: var(--orange); }
+  .card.c-ink{ border-top-color: var(--ink); }
+  .card:hover{ transform: translateY(-5px); box-shadow: 0 20px 34px -18px rgba(23,24,31,0.28); }
+  .card .thumb{ height: 168px; overflow:hidden; position:relative; background: var(--bg-soft); }
+  .card .thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .3s ease; }
+  .card:hover .thumb img{ transform: scale(1.06); }
+  .card .body{ padding: 22px 22px 26px; flex:1; display:flex; flex-direction:column; }
+  .tag{ display:inline-block; font-size:0.72rem; letter-spacing:0.03em; text-transform:uppercase; font-weight:700; padding:5px 12px; border-radius:999px; width:fit-content; position:relative; z-index:2; }
+  .tag-yellow{ background: var(--yellow); color: #4A3800; }
+  .tag-orange{ background: var(--orange); color: #fff; }
+  .tag-ink{ background: var(--ink); color: #fff; }
+  .card h3{ font-size: 1.2rem; margin-top: 10px; font-weight:600; }
+  .card p{ color: var(--ink-soft); font-size: 0.93rem; margin: 10px 0 0; flex:1; }
+  .card .go{ margin-top: 16px; font-size: 0.86rem; font-weight: 700; color: var(--orange-dark); }
+  .card .go::before{ content:""; position:absolute; inset:0; z-index:1; }
+  .card .go::after{ content: " →"; transition: margin .15s ease; }
+  .card:hover .go::after{ margin-left:4px; }
+
+  /* About */
+  .about-grid{ display:grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items:center; }
+  .about-grid .photo img{ border-radius: 18px; box-shadow: 0 24px 50px -24px rgba(23,24,31,0.35); }
+  .about-grid .stats{ display:flex; gap:16px; margin-top: 30px; flex-wrap:wrap; }
+  .about-grid .stats div{ background: #fff; border:1px solid var(--line); border-radius: var(--radius); padding:16px 20px; }
+  .about-grid .stats strong{ font-family:'Baloo 2',sans-serif; font-size:2.1rem; display:block; color: var(--orange-dark); }
+  .about-grid .stats span{ font-size:0.85rem; color:var(--ink-soft); }
+
+  /* Location + contact */
+  .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .panel{
+    background: var(--card); border:1px solid var(--line); border-radius: 18px;
+    padding: 34px; display:flex; flex-direction:column; gap: 12px;
+  }
+  .panel img{ border-radius: 12px; height:180px; object-fit:cover; margin-bottom: 8px; }
+  .panel h3{ font-size:1.4rem; }
+  .panel p{ color: var(--ink-soft); }
+  .panel .btn{ align-self:flex-start; margin-top:10px; }
+
+  footer{ border-top: 1px solid var(--line); padding: 40px 0; background: var(--bg-soft); }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-inner img{ height: 34px; width:auto; }
+  footer p{ color: var(--ink-soft); font-size: 0.85rem; margin:0; }
+
+  @media (max-width: 860px){
+    nav.links{ position:fixed; top:72px; left:0; right:0; background:var(--bg);
+      flex-direction:column; align-items:flex-start; padding:22px 28px; gap:18px;
+      border-bottom:1px solid var(--line); display:none; }
+    nav.links.open{ display:flex; }
+    .menu-toggle{ display:block; }
+    .cards{ grid-template-columns: 1fr 1fr; }
+    .about-grid, .split{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px){
+    .cards{ grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .card, .btn, .card .thumb img{ transition:none; }
+  }
+</style>
 </head>
-<body class="is-preload">
+<body>
 
-	<!-- Wrapper -->
-<div id="wrapper">
-
-	<!-- Header -->
-<header id="header">
-<div class="inner">
-
-	<!-- Logo--> 
-<a href="index.html" class="logo">
-<span class="symbol"><img src="images/coco_droite.png" alt="" /></span><span class="title">anatis formations </span>
-</a>
-
-	<!-- Nav -->
-<nav>
-<ul>
-<li><a href="#menu">Menu</a></li>
-</ul>
-</nav>
-</div>
+<header class="site">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/logo.png" alt="Anatis Formations" />
+    </a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="document.querySelector('nav.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links">
+      <a href="index.html#formations">Formations</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#apropos">Qui sommes-nous</a>
+      <a href="index.html#localisation">Nous localiser</a>
+      <a href="index.html#contact" class="btn btn-primary">Nous contacter</a>
+    </nav>
+  </div>
 </header>
 
-	<!-- Menu -->
-<nav id="menu">
-<h2>Menu</h2>
-<ul>
-<li><a href="index.html">Accueil</a></li>
-<li><a href="page 10.html">Qui sommes-nous ?</a></li>
-<li><a href="page 11.html">Nous localiser</a></li>
-<li><a href="page 12.html">Nous contacter</a></li>
-</ul>
-</nav>
+<section class="hero" style="padding-bottom:20px;">
+  <div class="wrap hero-inner">
+    <a href="index.html#formations" style="font-size:0.9rem; font-weight:600; color:var(--ink-soft);">&larr; Retour aux formations</a>
+    <span class="eyebrow" style="color:var(--orange-dark); display:block; margin-top:18px;">Particuliers & TPE</span>
+    <h1 style="margin-top:8px; display:flex; align-items:center; gap:16px;">
+      Informatique
+      <svg width="60" height="60" viewBox="0 0 24 24" style="flex-shrink:0;">
+        <defs>
+          <radialGradient id="globeGrad" cx="32%" cy="28%" r="80%">
+            <stop offset="0%" stop-color="#9FE6F7"/>
+            <stop offset="45%" stop-color="#2FA8E0"/>
+            <stop offset="100%" stop-color="#0F4C8C"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="12" cy="21.5" rx="7" ry="1.2" fill="#000000" opacity="0.15"/>
+        <g style="animation:spin-slow 8s linear infinite; transform-origin:12px 12px;">
+          <circle cx="12" cy="12" r="9" fill="url(#globeGrad)"/>
+          <ellipse cx="12" cy="12" rx="3.6" ry="9" fill="none" stroke="#CFF6FF" stroke-width="0.4" opacity="0.85"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.6" fill="none" stroke="#CFF6FF" stroke-width="0.4" opacity="0.85"/>
+          <ellipse cx="12" cy="12" rx="7" ry="9" fill="none" stroke="#CFF6FF" stroke-width="0.35" opacity="0.6" transform="rotate(55 12 12)"/>
+          <g fill="#EAFDFF">
+            <circle cx="12" cy="3" r="0.55"/><circle cx="12" cy="21" r="0.55"/>
+            <circle cx="3" cy="12" r="0.55"/><circle cx="21" cy="12" r="0.55"/>
+            <circle cx="12" cy="12" r="0.55"/>
+          </g>
+          <ellipse cx="8.6" cy="8" rx="1.6" ry="0.9" fill="#FFFFFF" opacity="0.3" transform="rotate(-25 8.6 8)"/>
+        </g>
+      </svg>
+    </h1>
+    <style>@keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}</style>
+  </div>
+</section>
 
-	<!-- Main -->
-<div id="main">
+<section class="section" style="padding-top:20px;">
+  <div class="wrap" style="max-width:760px;">
+    <div style="border-radius:18px; overflow:hidden; margin-bottom:28px; box-shadow:0 24px 50px -24px rgba(23,24,31,0.35);">
+      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic06.jpg" alt="Informatique" onerror="this.parentElement.style.display='none'" style="width:100%; display:block;" />
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;">
+      <span class="tag tag-ink" style="font-size:0.82rem; padding:8px 16px;">Word / Writer</span>
+      <span class="tag tag-ink" style="font-size:0.82rem; padding:8px 16px;">Excel / Calc</span>
+      <span class="tag tag-ink" style="font-size:0.82rem; padding:8px 16px;">Windows 11</span>
+      <span class="tag tag-ink" style="font-size:0.82rem; padding:8px 16px;">Google Drive</span>
+      <span class="tag tag-orange" style="font-size:0.82rem; padding:8px 16px;">Appli web</span>
+      <span class="tag tag-orange" style="font-size:0.82rem; padding:8px 16px;">IA générative</span>
+      <span class="tag tag-orange" style="font-size:0.82rem; padding:8px 16px;">Sécurité des données</span>
+    </div>
 
-<div class="inner">
-<h1>Informatique</h1>
-<span class="image main"><img src="images/pic 17.jpg" alt="" /></span>
-<B><FONT SIZE=8>Cours d&acute;informatique pour les particuliers</FONT></B><br><br>
+    <div style="display:flex; align-items:center; gap:16px; background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius); padding:18px 24px; margin-bottom:28px;">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--orange-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+      <span style="font-size:0.95rem; color:var(--ink-soft);">Ancien chargé de projet numérique au Ministère de l'Agriculture — innovation numérique. J'ai aussi assuré diverses missions durant mes activités professionnelles et formé le personnel à leur usage.</span>
+    </div>
 
-<FONT SIZE=6>Vous souhaitez &ecirc;tre plus &agrave; l&acute;aise dans l&acute;usage des outils num&eacute;riques.<br>M&ecirc;me si vous avez la phobie de l&acute;informatique.
-Ou vous souhaitez vous perfectionner dans un (ou plusieurs) logiciel(s).<br><br>
+    <div style="display:inline-flex; background:var(--bg-soft); border:1px solid var(--line); border-radius:999px; padding:4px; margin-bottom:20px;">
+      <button type="button" id="tab-particuliers" onclick="document.getElementById('panel-particuliers').style.display='block'; document.getElementById('panel-entreprise').style.display='none'; this.style.background='var(--orange)'; this.style.color='#fff'; document.getElementById('tab-entreprise').style.background='transparent'; document.getElementById('tab-entreprise').style.color='var(--ink-soft)';" style="border:none; cursor:pointer; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:0.9rem; padding:10px 22px; border-radius:999px; background:var(--orange); color:#fff; transition:all .15s ease;">Particuliers</button>
+      <button type="button" id="tab-entreprise" onclick="document.getElementById('panel-entreprise').style.display='block'; document.getElementById('panel-particuliers').style.display='none'; this.style.background='var(--orange)'; this.style.color='#fff'; document.getElementById('tab-particuliers').style.background='transparent'; document.getElementById('tab-particuliers').style.color='var(--ink-soft)';" style="border:none; cursor:pointer; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:0.9rem; padding:10px 22px; border-radius:999px; background:transparent; color:var(--ink-soft); transition:all .15s ease;">Association / Entreprise</button>
+    </div>
 
-Je peux booster vos comp&eacute;tences. Vous coacher pour vous faire progresser.<br><br>
+    <div id="panel-particuliers" style="background:var(--bg-soft); border:1px solid var(--line); border-top:4px solid var(--orange); border-radius:var(--radius); padding:24px; margin-bottom:8px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--orange-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+      <h3 style="font-family:'Baloo 2',sans-serif; font-size:1.15rem; margin:12px 0 10px; color:var(--ink);">Particuliers</h3>
+      <ul style="padding-left:18px; margin:0; font-size:0.92rem; color:var(--ink-soft);">
+        <li style="margin-bottom:6px;">Prise en main des outils numériques du quotidien</li>
+        <li style="margin-bottom:6px;">Perfectionnement sur un ou plusieurs logiciels</li>
+        <li style="margin-bottom:6px;">Création de votre site ou appli web personnel</li>
+      </ul>
+    </div>
+    <div id="panel-entreprise" style="display:none; background:var(--bg-soft); border:1px solid var(--line); border-top:4px solid var(--ink); border-radius:var(--radius); padding:24px; margin-bottom:8px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      <h3 style="font-family:'Baloo 2',sans-serif; font-size:1.15rem; margin:12px 0 10px; color:var(--ink);">Association / Entreprise</h3>
+      <ul style="padding-left:18px; margin:0; font-size:0.92rem; color:var(--ink-soft);">
+        <li style="margin-bottom:6px;">Formation du personnel aux outils numériques</li>
+        <li style="margin-bottom:6px;">Accompagnement de projets digitaux (site, appli, sécurité)</li>
+        <li style="margin-bottom:6px;">Appui technique à vos équipes informatiques</li>
+      </ul>
+    </div>
 
-<FONT SIZE=8><B>En bureautique</B></FONT><br><br>
+    <div id="code-window" onclick="replayTyping()" style="margin-top:24px; border-radius:14px; overflow:hidden; box-shadow:0 24px 50px -24px rgba(23,24,31,0.4); cursor:pointer;" title="Cliquez pour rejouer">
+      <div style="background:#2B2B3D; padding:12px 18px; display:flex; align-items:center; gap:8px;">
+        <span style="width:11px; height:11px; border-radius:50%; background:#FF5F57; display:inline-block;"></span>
+        <span style="width:11px; height:11px; border-radius:50%; background:#FEBC2E; display:inline-block;"></span>
+        <span style="width:11px; height:11px; border-radius:50%; background:#28C840; display:inline-block;"></span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:#9A9AB0; margin-left:10px;">projet-web.js</span>
+      </div>
+      <div style="background:#1E1E2E; padding:22px 0; font-family:'JetBrains Mono',monospace; font-size:0.92rem; line-height:1.9; overflow-x:auto;">
 
-<B>Traitement de texte</B><br> Word / Texte(Open Office) ou Writer(Libre Office)<br><br>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">1</span><span class="type-line" data-anim="typeLine 0.64s steps(45,end) forwards" data-delay="0.0s" style="--w:60ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.64s steps(45,end) forwards; animation-delay:0.0s;"><span style="color:#6A9955;">// Créer un site internet avec l'aide de l'IA</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">2</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="0.68s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:0.68s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">3</span><span class="type-line" data-anim="typeLine 1.16s steps(81,end) forwards" data-delay="0.78s" style="--w:96ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 1.16s steps(81,end) forwards; animation-delay:0.78s;"><span style="color:#D4D4E0; padding-right:24px;">Aujourd'hui, créer un site avec l'IA est <span style="color:#CE9178;">"finalement plus rapide"</span> qu'avant — mais</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">4</span><span class="type-line" data-anim="typeLine 1.04s steps(73,end) forwards" data-delay="1.98s" style="--w:88ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 1.04s steps(73,end) forwards; animation-delay:1.98s;"><span style="color:#D4D4E0; padding-right:24px;">cela demande de savoir <span style="color:#4FC1FF;">maîtriser</span> ces outils pour en tirer vraiment parti.</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">5</span><span class="type-line" data-anim="typeLine 0.54s steps(38,end) forwards" data-delay="3.06s" style="--w:53ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.54s steps(38,end) forwards; animation-delay:3.06s;"><span style="color:#D4D4E0; padding-right:24px;">C'est là que je peux vous accompagner.</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">6</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="3.64s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:3.64s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">7</span><span class="type-line" data-anim="typeLine 0.2s steps(14,end) forwards" data-delay="3.74s" style="--w:29ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.2s steps(14,end) forwards; animation-delay:3.74s;"><span style="color:#6A9955;">// Hébergement</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">8</span><span class="type-line" data-anim="typeLine 0.93s steps(65,end) forwards" data-delay="3.98s" style="--w:80ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.93s steps(65,end) forwards; animation-delay:3.98s;"><span style="color:#D4D4E0; padding-right:24px;">hebergement = <span style="color:#CE9178;">"gratuit et professionnel"</span> <span style="color:#6A9955;">// sans payer de serveur</span></span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">9</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="4.95s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:4.95s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">10</span><span class="type-line" data-anim="typeLine 0.16s steps(11,end) forwards" data-delay="5.05s" style="--w:26ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.16s steps(11,end) forwards; animation-delay:5.05s;"><span style="color:#6A9955;">// Sécurité</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">11</span><span class="type-line" data-anim="typeLine 1.09s steps(76,end) forwards" data-delay="5.25s" style="--w:91ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 1.09s steps(76,end) forwards; animation-delay:5.25s;"><span style="color:#D4D4E0; padding-right:24px;">if (<span style="color:#4FC1FF;">projet</span>) { <span style="color:#C586C0;">sensibiliser</span>(<span style="color:#CE9178;">"sécurité des données"</span>, <span style="color:#CE9178;">"accès administrateur"</span>) }</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">12</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="6.38s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:6.38s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">13</span><span class="type-line" data-anim="typeLine 0.17s steps(12,end) forwards" data-delay="6.48s" style="--w:27ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.17s steps(12,end) forwards; animation-delay:6.48s;"><span style="color:#6A9955;">// Pour tous</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">14</span><span class="type-line" data-anim="typeLine 1.09s steps(76,end) forwards" data-delay="6.69s" style="--w:91ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 1.09s steps(76,end) forwards; animation-delay:6.69s;"><span style="color:#D4D4E0; padding-right:24px;">solution_sur_mesure = <span style="color:#4FC1FF;">je_cree_pour_vous</span>() || <span style="color:#4FC1FF;">je_vous_accompagne_a_le_creer</span>()</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">15</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="7.82s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:7.82s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">16</span><span class="type-line" data-anim="typeLine 0.14s steps(10,end) forwards" data-delay="7.92s" style="--w:25ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.14s steps(10,end) forwards; animation-delay:7.92s;"><span style="color:#6A9955;">// Contact</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">17</span><span class="type-line" data-anim="typeLine 0.94s steps(66,end) forwards" data-delay="8.1s" style="--w:81ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.94s steps(66,end) forwards; animation-delay:8.1s;"><span style="color:#D4D4E0; padding-right:24px;">contactez_moi(); <span style="color:#6A9955;">// je vous accompagne pas à pas, cours à domicile</span></span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">18</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="9.08s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:9.08s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">19</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="9.18s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:9.18s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">20</span><span class="type-line" data-anim="typeLine 0.46s steps(32,end) forwards" data-delay="9.28s" style="--w:47ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.46s steps(32,end) forwards; animation-delay:9.28s;"><span style="color:#6A9955;">// Autres demandes informatiques</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">21</span><span class="type-line" data-anim="typeLine 1.41s steps(99,end) forwards" data-delay="9.78s" style="--w:114ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 1.41s steps(99,end) forwards; animation-delay:9.78s;"><span style="color:#D4D4E0; padding-right:24px;">contactez_moi(<span style="color:#4FC1FF;">votre_besoin</span>); <span style="color:#6A9955;">// toute demande liée à l'informatique, contactez-moi pour en discuter</span></span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">22</span><span class="type-line" data-anim="typeLine 0.06s steps(1,end) forwards" data-delay="11.23s" style="--w:16ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.06s steps(1,end) forwards; animation-delay:11.23s;"><span>&nbsp;</span></span></div>
+        <div style="display:flex; align-items:baseline;"><span style="width:44px; text-align:right; padding-right:16px; color:#4B4B63; user-select:none; flex-shrink:0;">23</span><span class="type-line" data-anim="typeLine 0.5s steps(35,end) forwards" data-delay="11.33s" style="--w:50ch; display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeLine 0.5s steps(35,end) forwards; animation-delay:11.33s;"><span style="color:#6A9955;">// Ce site a été créé par mes soins</span></span></div>
+      </div>
+      <style>@keyframes typeLine{to{width:var(--w);}}</style>
+      <script>
+        function replayTyping(){
+          var lines = document.querySelectorAll('#code-window .type-line');
+          lines.forEach(function(el){
+            el.style.animation = 'none';
+            el.style.width = '0';
+          });
+          void document.getElementById('code-window').offsetWidth;
+          lines.forEach(function(el){
+            el.style.animation = el.getAttribute('data-anim');
+            el.style.animationDelay = el.getAttribute('data-delay');
+          });
+        }
+      </script>
+    </div>
+  </div>
+</section>
 
-<B>Tableur</B><br><br> Excel / Classeur(Open Office) / Calc(Libre Office)<br>
-
-Avec une d&eacute;couverte des diff&eacute;rents packs bureautique.<br>
-
-Renforcement dans un logiciel sp&eacute;cifique (me contacter)<br>
-
-A l&acute;environnement Windows 10<br>
-
-A l&acute;usage des principales applications de Google Drive<br><br>
-
-<FONT SIZE=6><B>Pour les enseignants et les &eacute;l&egrave;ves/les &eacute;tudiants<br><br></B></FONT>
-Office 365 Education (acc&egrave;s gratuit pour les enseignants / les &eacute;tudiants<br>
-
-Module : Rendre son rapport ou son m&eacute;moire<br>
-
-<B>Voir aussi les offres pour les centres de formations</B><br><br>
-
-<FONT SIZE=6><B>Cr&eacute;er votre premier  site perso  (site internet personnel) &agrave; votre image</B></FONT><br><br>
-
-Cr&eacute;er une page web (simple ou sophistiqu&eacute;e) et la mettre en ligne
-
-Avec un simple traitement de texte ou un logiciel sp&eacute;cifique
-
-Usage d&acute;un &eacute;diteur HTML (initiation)
-
-Pour info : il est possible de faire h&eacute;berger gratuitement votre site perso - sans pub. 
-
-Ce module est quasiment accessible &agrave; tous. Mais vous devrez vous investir.<br><br>  
-
-<I>Vous pouvez bénéficiez de 50 % de réduction d'impôts dans le cadre du service à la personne SAP</I><br><br>
- 
-
-
-Je peux aussi r&eacute;pondre &agrave; une demande particuli&egrave;re (me contacter).<br><br>
-
-Cours individuels à domicile<br><br>
+<div class="wrap" style="margin: 10px auto 10px;">
+  <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/credit-impot.png" alt="50% de crédit d'impôt immédiat" onerror="this.remove()" style="height:110px; width:auto; flex-shrink:0;" />
+    <p style="color:var(--ink-soft); font-size:1.05rem; line-height:1.5; margin:0; max-width:560px;"><span style="color:var(--orange-dark); font-weight:700;">Particuliers</span> — vous pouvez bénéficier de <strong style="color:var(--ink);">50% de crédit d'impôt</strong> <strong style="color:var(--orange-dark); background:rgba(255,122,26,0.15); padding:2px 10px; border-radius:6px;">immédiat</strong> dans le cadre du service à la personne (SAP).</p>
+  </div>
 </div>
 
-	
-	<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
 
+<section class="section section-soft" id="contact">
+  <div class="wrap" style="max-width:640px; margin:0 auto;">
+    <div class="panel">
+      <span class="tag tag-orange">Nous contacter</span>
+      <h3>Une question, envie de vous lancer ?</h3>
+      <p>Appelez-nous ou écrivez-nous, nous revenons vers vous rapidement.</p>
+      <p style="font-family:'Baloo 2',sans-serif; font-weight:700; font-size:2rem; color:var(--ink); margin:6px 0;">
+        <a href="tel:+33688998856" style="color:var(--orange-dark);">06 88 99 88 56</a>
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="tel:+33688998856">Nous appeler</a>
+        <a class="btn btn-ghost" href="mailto:anatisformations@gmail.com">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap foot-inner">
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/anatis-only-logo.png" alt="Anatis" />
+    <p>Templeuve-en-Pévèle, Hauts-de-France · anatisformations@gmail.com</p>
+    <p>© 2026 Anatis Formations</p>
+  </div>
+</footer>
 
 </body>
 </html>
