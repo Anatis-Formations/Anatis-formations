@@ -70,6 +70,7 @@
     padding: 4px 0;
   }
   nav.links a:hover{ color: var(--ink); }
+  nav.links a.active{ color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; text-decoration-color: var(--orange); }
   .btn{
     display:inline-block; font-weight:700; font-size:0.95rem;
     padding: 13px 26px; border-radius: 999px;
@@ -206,8 +207,8 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="links">
-      <a href="#formations">Formations</a>
-      <a href="#services">Services</a>
+      <a href="#formations" class="active">Formations</a>
+      <a href="services.html">Services</a>
       <a href="#apropos">Qui sommes-nous</a>
       <a href="#localisation">Nous localiser</a>
       <a href="#contact" class="btn btn-primary">Nous contacter</a>
@@ -332,50 +333,18 @@
         </article>
       </div>
     </div>
-
-    <div class="group" id="services">
-      <div class="group-label">
-        <span class="pill pill-ink">Services à domicile</span>
-        <div class="rule"></div>
-      </div>
-      <div class="cards">
-        <article class="card c-ink">
-          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic04.jpg" alt="Entretien de la maison" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
-          <div class="body">
-            <span class="tag tag-ink">À domicile</span>
-            <h3>Entretien de la maison</h3>
-            <p>Travaux ménagers réalisés avec soin et discrétion.</p>
-            <a class="go" href="page%204.html">En savoir plus</a>
-          </div>
-        </article>
-        <article class="card c-ink">
-          <div class="thumb"><img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic08.jpg" alt="Jardinage" onerror="this.parentElement.style.background='var(--bg-soft)';this.remove()" /></div>
-          <div class="body">
-            <span class="tag tag-ink">Extérieur</span>
-            <h3>Petits travaux de jardinage</h3>
-            <p>Entretien courant de votre jardin, sur demande ponctuelle ou régulière.</p>
-            <a class="go" href="page%208.html">En savoir plus</a>
-          </div>
-        </article>
-      </div>
-    </div>
   </div>
 </section>
 
 <section class="section section-soft" id="apropos">
-  <div class="wrap about-grid">
-    <div class="photo">
-      <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/pic10.jpg" alt="Qui sommes-nous" onerror="this.parentElement.style.background='var(--bg)';this.remove()" />
-    </div>
-    <div>
-      <span class="eyebrow" style="color:var(--orange-dark);">Qui sommes-nous</span>
-      <h2 style="margin-top:8px; font-size:clamp(1.8rem,3vw,2.3rem);">Des enseignants certifiés, diplômés et expérimentés</h2>
-      <p style="color:var(--ink-soft); margin-top:16px; font-size:1.02rem;">Anatis Formations, c'est nous deux : un couple d'enseignants certifiés et diplômés, ayant exercé en primaire, au collège, au lycée et à l'université. Cette expérience à tous les niveaux, chacun avec plus de 20 ans de pratique, fait toute la différence par rapport à d'autres organismes : nous connaissons les programmes, les méthodes et les exigences de chaque étape du parcours scolaire et professionnel.</p>
-      <div class="stats">
-        <div><strong>2</strong><span>enseignants certifiés</span></div>
-        <div><strong>20+</strong><span>ans d'expérience chacun</span></div>
-        <div><strong>4</strong><span>niveaux enseignés : primaire à l'université</span></div>
-      </div>
+  <div class="wrap" style="max-width:760px; text-align:center; margin-left:auto; margin-right:auto;">
+    <span class="eyebrow" style="color:var(--orange-dark);">Qui sommes-nous</span>
+    <h2 style="margin-top:8px; font-size:clamp(1.8rem,3vw,2.3rem);">Des enseignants certifiés, diplômés et expérimentés</h2>
+    <p style="color:var(--ink-soft); margin-top:16px; font-size:1.05rem;">Anatis Formations, c'est nous deux : un couple d'enseignants certifiés et diplômés, ayant exercé en primaire, au collège, au lycée et à l'université. Cette expérience à tous les niveaux, chacun avec plus de 20 ans de pratique, fait toute la différence par rapport à d'autres organismes : nous connaissons les programmes, les méthodes et les exigences de chaque étape du parcours scolaire et professionnel.</p>
+    <div class="stats" style="justify-content:center;">
+      <div><strong>2</strong><span>enseignants certifiés</span></div>
+      <div><strong>20+</strong><span>ans d'expérience chacun</span></div>
+      <div><strong>4</strong><span>niveaux enseignés : primaire à l'université</span></div>
     </div>
   </div>
 </section>
@@ -406,7 +375,7 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/logo.png" alt="Anatis Formations" />
+    <img src="https://raw.githubusercontent.com/Anatis-Formations/Anatis-formations/main/images/anatis-only-logo.png" alt="Anatis" />
     <p>Templeuve-en-Pévèle, Hauts-de-France · anatisformations@gmail.com</p>
     <p>© 2026 Anatis Formations</p>
   </div>
